@@ -1,45 +1,56 @@
-Have you ever played Minesweeper? It's a cute little game which comes within a 
-certain Operating System whose name we can't really remember. Well, the goal of
-the game is to find all the mines within an MxN field. To help you, the game 
-shows a number in a square which tells you how many mines there are adjacent to
-that square. For instance, take the following 4x4 field with 2 mines (which are
-represented by an * character):
+We have hired a very creative data analyst that has a theory about predicting
+compliance patterns in repeat drunk driving offenders.  The analyst would like
+a text based "compliance map" based on an MxN field of compliance data. The
+analyst is requesting that we show a number in a node that indicates how many
+violation events there are in adjacent nodes (violation events are represented
+by an * character).
 
-*...
-....
-.*..
-....
+Compliance data will come in the following format:
 
-The same field including the hint numbers described above would look like this:
+*....*.
+......*
+.*..*..
+.......
 
-*100
-2210
-1*10
-1110
+The compliance map for the data above should look like this:
 
-You should write a program that takes input as follows:
+*1001*2
+221123*
+1*11*21
+1111110
 
-The input will consist of an arbitrary number of fields. The first line of each
-field contains two integers n and m (0 < n,m <= 100) which stands for the
-number of lines and columns of the field respectively. The next n lines
-contains exactly m characters and represent the field. Each safe square is
-represented by an "." character (without the quotes) and each mine square is
-represented by an "*" character (also without the quotes). The first field line
-where n = m = 0 represents the end of input and should not be processed.
+You should write a console program that takes input from standard input 
+as follows:
 
-Your program should produce output as follows:
+The input will consist of an arbitrary number of compliance data sets. 
+The first line of each set contains two integers n and m (0 < n, m <= 100) 
+which stands for the number of lines and columns of the set respectively. 
+The next n lines contains exactly m characters and represent the set. 
+Each compliant node is represented by an "." character (without the quotes) 
+and each violation node is represented by an "*" character (also without the 
+quotes). The first set line where n = m = 0 represents the end of input and 
+should not be processed.
 
-For each field, you must print the following message in a line alone:
+Your program should produce output to standard output as follows:
 
-Field #x:
+For each set, you must print the following message in a line alone:
 
-Where x stands for the number of the field (starting from 1). The next n lines 
-should contain the field with the "." characters replaced by the number of 
-adjacent mines to that square. There must be an empty line between field outputs.
+Set #x:
+
+Where x stands for the number of the set (starting from 1). The next n lines 
+should contain the set with the "." characters replaced by the number of 
+adjacent violation nodes to that node. There must be an empty line between 
+set outputs.
 
 Clues
 
-As you may have already noticed, each square may have at most 8 adjacent squares.
+	* As you may have already noticed, each node may have at most 8 adjacent nodes
+	* Make sure your console application can read from standard in (Console.ReadLine) 
+	  and writes to standard out (Console.Write) 
+	* There are a couple of test sets in the ComplianceMapper solution folder 
+	  (test-input.txt and large-test.txt).  If written properly, your console 
+	  application should be able to have these text files feed to them from the 
+	  command line, like so:  your-app.exe < test-input.txt
 
 Suggested Test Cases
 
@@ -54,17 +65,28 @@ This is the acceptance test input:
 **...
 .....
 .*...
+4 7
+*....*.
+......*
+.*..*..
+.......
 0 0
 
 and output:
 
-Field #1:
+Set #1:
 *100
 2210
 1*10
 1110
 
-Field #2:
+Set #2:
 **100
 33200
 1*100
+
+Set #3:
+*1001*2
+221123*
+1*11*21
+1111110

@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Minesweeper", "Minesweeper", "{2140FD23-81BE-4574-A1B0-5BC8D67AEB49}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ComplianceMapper", "ComplianceMapper", "{2140FD23-81BE-4574-A1B0-5BC8D67AEB49}"
 	ProjectSection(SolutionItems) = preProject
+		large-test.txt = large-test.txt
 		Problem Description.txt = Problem Description.txt
+		test-input.txt = test-input.txt
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Refactor", "Refactor", "{BD45DAB5-249E-4A76-AE72-D8B8F3BFB853}"
@@ -18,6 +20,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Instructions - README FIRST
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithm", "Algorithm\Algorithm.csproj", "{21BCAD0E-3B6C-47CB-AF91-A36A8F1EE6FB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Find The Bug - Web", "Find The Bug - Web", "{5D595F3C-5714-436D-BBF4-09B787FB6D65}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleWeb", "SimpleWeb\SimpleWeb.csproj", "{C8D92545-2395-4A2E-95D2-E5F2DA65E28A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleWeb.Tests", "SimpleWeb.Tests\SimpleWeb.Tests.csproj", "{C92A67D9-DC7E-45F2-AA65-0ECA8761A6D3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +41,14 @@ Global
 		{21BCAD0E-3B6C-47CB-AF91-A36A8F1EE6FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{21BCAD0E-3B6C-47CB-AF91-A36A8F1EE6FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{21BCAD0E-3B6C-47CB-AF91-A36A8F1EE6FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8D92545-2395-4A2E-95D2-E5F2DA65E28A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8D92545-2395-4A2E-95D2-E5F2DA65E28A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8D92545-2395-4A2E-95D2-E5F2DA65E28A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8D92545-2395-4A2E-95D2-E5F2DA65E28A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C92A67D9-DC7E-45F2-AA65-0ECA8761A6D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C92A67D9-DC7E-45F2-AA65-0ECA8761A6D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C92A67D9-DC7E-45F2-AA65-0ECA8761A6D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C92A67D9-DC7E-45F2-AA65-0ECA8761A6D3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -40,5 +56,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{F2D514C1-0A56-4554-B72E-D2CBFEF67D38} = {BD45DAB5-249E-4A76-AE72-D8B8F3BFB853}
 		{21BCAD0E-3B6C-47CB-AF91-A36A8F1EE6FB} = {BD45DAB5-249E-4A76-AE72-D8B8F3BFB853}
+		{C8D92545-2395-4A2E-95D2-E5F2DA65E28A} = {5D595F3C-5714-436D-BBF4-09B787FB6D65}
+		{C92A67D9-DC7E-45F2-AA65-0ECA8761A6D3} = {5D595F3C-5714-436D-BBF4-09B787FB6D65}
 	EndGlobalSection
 EndGlobal
