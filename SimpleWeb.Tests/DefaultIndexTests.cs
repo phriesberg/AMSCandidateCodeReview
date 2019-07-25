@@ -23,7 +23,7 @@ namespace SimpleWeb.Tests
 
 
 		[TestMethod]
-		public void When_ExistingWidgetIsDeleted_DeleteReturnsEmptyResult()
+		public void When_ExistingWidgetIsDeleted_DeleteReturnsJsonTrue()
 		{
 			var controller = new DefaultController();
 			Widget widget;
@@ -34,8 +34,9 @@ namespace SimpleWeb.Tests
 
 			result = controller.Delete(widget.Id);
 
-			Assert.IsInstanceOfType(result, typeof(EmptyResult));
-		}
+            Assert.IsInstanceOfType(result, typeof(JsonResult));
+            Assert.IsTrue((bool)((JsonResult)result).Data);
+        }
 
 		[TestMethod]
 		public void When_UnknwonWidgetIsDeleted_DeleteReturnsJsonFalse()

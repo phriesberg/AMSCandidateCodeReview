@@ -50,7 +50,7 @@ namespace SimpleWeb.Controllers
 				return Json(false);
 
 			widgets.Remove(widgets.First(w => w.Id == id));
-			return new EmptyResult();
+			return Json(true);
 		}
 
 

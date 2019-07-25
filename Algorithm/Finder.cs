@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Algorithm
 {
@@ -13,55 +15,37 @@ namespace Algorithm
 
         public F Find(FT ft)
         {
-            var tr = new List<F>();
+            F matchedReturn = new F();
 
-            for(var i = 0; i < _p.Count - 1; i++)
+            List<F> matchList = new List<F>();
+
+            foreach (Thing person in _p)
             {
-                for(var j = i + 1; j < _p.Count; j++)
+                Thing thisMatch = new Thing(); 
+                F newMatchedPair = new F();
+
+                // get closest or farthest future birthday match for each person
+                thisMatch = ft.Equals(FT.One)
+                    ? _p.Where(potentialMatch => potentialMatch.BirthDate > person.BirthDate).OrderBy(potentialMatch => potentialMatch.BirthDate).FirstOrDefault()
+                    : _p.Where(potentialMatch => potentialMatch.BirthDate > person.BirthDate).OrderByDescending(potentialMatch => potentialMatch.BirthDate).FirstOrDefault();
+
+                // add that match to list
+                if (thisMatch!=null)
                 {
-                    var r = new F();
-                    if(_p[i].BirthDate < _p[j].BirthDate)
-                    {
-                        r.P1 = _p[i];
-                        r.P2 = _p[j];
-                    }
-                    else
-                    {
-                        r.P1 = _p[j];
-                        r.P2 = _p[i];
-                    }
-                    r.D = r.P2.BirthDate - r.P1.BirthDate;
-                    tr.Add(r);
+                    newMatchedPair = new F() { P1 = person, P2 = thisMatch, D = person.BirthDate - thisMatch.BirthDate };
+                    matchList.Add(newMatchedPair);
                 }
             }
 
-            if(tr.Count < 1)
+            if (matchList.Count > 0)
             {
-                return new F();
+                // get farthest or closest difference
+                matchedReturn = ft.Equals(FT.One)
+                                ? matchedReturn = (from matchedPair in matchList where matchedPair.D == matchList.Max(i => i.D) select matchedPair).FirstOrDefault()
+                                : matchedReturn = (from matchedPair in matchList where matchedPair.D == matchList.Min(i => i.D) select matchedPair).FirstOrDefault();
             }
 
-            F answer = tr[0];
-            foreach(var result in tr)
-            {
-                switch(ft)
-                {
-                    case FT.One:
-                        if(result.D < answer.D)
-                        {
-                            answer = result;
-                        }
-                        break;
-
-                    case FT.Two:
-                        if(result.D > answer.D)
-                        {
-                            answer = result;
-                        }
-                        break;
-                }
-            }
-
-            return answer;
+            return matchedReturn;   
         }
     }
 }
